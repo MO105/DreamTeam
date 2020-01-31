@@ -1,4 +1,92 @@
 {% extends "layout.html" %}
 {% block content %}
+
+
+
 <div class ="content-section">
+        <legend class="border-bottom mb-4"></legend>
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" data-toggle="tab" href="#BI">Kinase Search Function </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#PS">Inhibitor Search Function</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#GW">Data Upload</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#GW">Phosphosite Search</a>
+  </li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane container active" id="BI">
+    
+    
+
+
+
+  </div>
+  <div class="tab-pane container fade" id="PS">
+
+
+   <table class="table table-hover">
+           <tr>
+            <th rowspan="2" width="70%">Substrate</th>
+            <th rowspan="2" >Phosphosite </th>
+            <th colspan="5">Genomic Location</th>
+           </tr>   
+           <tr>
+            <th>Chr</th>
+            <th>Karyotype</th>
+            <th>Strand</th>
+            <th>Start Position</th>
+            <th>End Position</th>
+           </tr>
+           <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+           </tr>
+          
+          </table>
+
+
+
+
+
+
+  </div>
+  <div class="tab-pane container fade" id="GW">
+    
+    
+
+
+
+
+  </div>
+          
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
 {% endblock content %}
+

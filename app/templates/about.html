@@ -1,9 +1,9 @@
 {% extends "layout.html" %}
 {% block content %}
 <div class ="content-section">
-     {% for post in posts%}
+     {% for x in mo%}
 
-	       <h1>{{post.Name}}</h1>
+	       <h1>{{item.Name}}</h1>
 	       <p>{{post.Description}}</p>
 	    {% endfor %}
 {% endblock content %}
