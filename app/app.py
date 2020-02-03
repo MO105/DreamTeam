@@ -9,6 +9,7 @@ from sqlalchemy import create_engine, or_, and_
 from kinase_functions import *
 from db_setup import s 
 
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '11d5c86229d773022cb61679343f8232'
 
@@ -41,15 +42,25 @@ def Data_Upload():
                         os.makedirs(uploads_dir)
                     InputFile.save(os.path.join(uploads_dir, secure_filename(InputFile.filename)))
                     flash ("Upload Successful", "info")
-                    return redirect(url_for('DataAnalysis'))
+                    return redirect(url_for('Parameter'))
                 else:
                     flash('Incorrect selected file', 'danger')
     return render_template('Data_Upload.html', title='Data Upload', form=form)
 
 
-@app.route("/DataAnalysis")
-def DataAnalysis():
-    return render_template('data_parameter.html')
+@app.route("/upload/Parameters", methods = ['GET', 'POST'])
+def Parameter():
+    form = Parameters()
+    PValue = dict(form.PValue.choices).get(form.PValue.data)
+    Fold = form.Fold.data
+    Coeff = form.Coefficience.data
+    if request.method == "POST":
+        return redirect(url_for('Visualisation' , PValue=PValue, Fold=Fold, Coeff=Coeff ))
+    return render_template('data_parameter.html', form=form)
+
+@app.route("/upload/Parameters/DataVisualisation")
+def Visualisation():
+    return render_template('data_analysis_results.html' )   
 
 
 @app.route("/HumanKinases", methods = ['GET', 'POST'])
